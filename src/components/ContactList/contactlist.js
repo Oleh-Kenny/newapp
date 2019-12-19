@@ -1,45 +1,27 @@
 import React, { Fragment } from "react";
-import "./contactlist.css";
 import ContactItem from "./ContactItem/contactitem";
+import "./contactlist.css";
+
 import SerchComponent from "../SerchComponent/search";
 
-
-const ContactList = ({ ContactList, onDelete, StarFavor }) => {
-  console.log("Arrey =>", ContactList);
-  const listIthem = ContactList.map(item => {
+const ContactList = ({ ContactList }) => {
+  console.log("console", ContactList);
+  const listItem = ContactList.map(item => {
     return (
       <ContactItem
-        key={item.id}
-        avatar={item.avatar}
-        name={item.name}
-        description={item.description}
-        gender={item.gender}
-        facebbok={item.facebooklist}
-        twitt={item.twitterList}
-        linked={item.linkeDin}
-        skyPe={item.skype}
-        messs={item.messager}
-        
-        favorite={item.favorite}
-        onDelete={() => onDelete(item.id)}
-        StarFavor={() => StarFavor(item.id)}
-        
-        
-        
-       
-        
-        
+        type={item.type}
+        placeUa={item.placeUa}
+        fullAddressUa={item.fullAddressUa}
       ></ContactItem>
     );
   });
   return (
-   
     <Fragment>
-       <SerchComponent></SerchComponent>
-      <h2 className="col-7 d-flex justify-content-center">Contact</h2>
-      {listIthem}
+      <SerchComponent></SerchComponent>
+
+      <h2>Banks Info</h2>
+      {listItem}
     </Fragment>
-    
   );
 };
 export default ContactList;
